@@ -1,0 +1,17 @@
+<h2>Product List</h2>
+
+<app-product-create (added)="onAdd($event)"></app-product-create>
+
+<div style="display:flex">
+  <div style="flex-basis: 40%;">
+    <ul>
+      <li *ngFor="let product of (products$|async)! | sort">
+        <a [routerLink]="['./', product.id]">{{product.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <div style="flex-basis: 60%;">
+     <router-outlet></router-outlet>
+  </div>
+
+</div>
